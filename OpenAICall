@@ -1,0 +1,21 @@
+# Step 1: Create your prompts
+
+system_prompt = "You are a product analyst in a bank and want to find out use cases where AI and GenAI can be used, reply nicely and be confident"
+user_prompt = """
+What are the use cases where we can use AI and genAI in banks
+"""
+
+# Step 2: Make the messages list
+
+messages = [
+    {"role": "system", "content": system_prompt},
+    {"role": "user", "content": user_prompt}
+] # fill this in
+print(messages)
+# Step 3: Call OpenAI
+
+response = openai.chat.completions.create(model="gpt-4o-mini", messages=messages)
+
+# Step 4: print the result
+
+print(response.choices[0].message.content)
